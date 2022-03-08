@@ -95,10 +95,6 @@ while True:
     current_board = boards[-1]
     boards.pop()
 
-    # skip the rest if the current board is not valid
-    if not valid(current_board):
-        continue
-
     # check if board is still valid and not complete
     if valid(current_board) and not complete(current_board):
         # get first empty box in the board
@@ -113,8 +109,7 @@ while True:
             # set the box to its possibility
             toAppend[row][col] = i
             # make sure the new board is still valid
-            if valid(toAppend):
-                boards.append(toAppend)
+            boards.append(toAppend)
     # if the board is complete and valid, add one to the number of solutions
     if valid(current_board) and complete(current_board):
         num_solutions += 1
